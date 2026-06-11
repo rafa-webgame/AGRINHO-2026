@@ -1,1 +1,47 @@
+/* Reset básico para evitar margens indesejadas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Variáveis de cores inspiradas no tema Agrinho */
+:root {
+    --cor-primaria: #2d5a27; /* Verde campo */
+    --cor-secundaria: #f4d03f; /* Amarelo sol */
+    --cor-fundo: #f9f7f2;
+    --texto: #333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: var(--cor-fundo);
+    color: var(--texto);
+}
+
+/* Layout responsivo simples */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Adaptabilidade para celulares */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
