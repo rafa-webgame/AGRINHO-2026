@@ -1,47 +1,397 @@
-/* Reset básico para evitar margens indesejadas */
+:root {
+    --primary-color: #2e7d32;
+    --primary-dark: #1b5e20;
+    --accent-color: #81c784;
+    --dark-neutral: #263238;
+    --light-neutral: #f8f9fa;
+    --error-color: #d32f2f;
+    --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Variáveis de cores inspiradas no tema Agrinho */
-:root {
-    --cor-primaria: #2d5a27; /* Verde campo */
-    --cor-secundaria: #f4d03f; /* Amarelo sol */
-    --cor-fundo: #f9f7f2;
-    --texto: #333;
-}
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-stack);
+    color: var(--dark-neutral);
     line-height: 1.6;
-    background-color: var(--cor-fundo);
-    color: var(--texto);
+    background-color: #ffffff;
 }
 
-/* Layout responsivo simples */
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
 }
 
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-neutral);
+}
+
+.text-center { text-align: center; }
+.text-white { color: #ffffff !important; }
+
+/* Header e Navegação */
 header {
-    background-color: var(--cor-primaria);
-    color: white;
-    padding: 2rem 0;
-    text-align: center;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
 }
 
-/* Adaptabilidade para celulares */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-neutral);
+}
+
+.logo i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--dark-neutral);
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+}
+
+.btn-nav {
+    background: var(--primary-color);
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+}
+
+.btn-nav:hover {
+    background: var(--primary-dark);
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f1f8e9 0%, #ffffff 100%);
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 2.8rem;
+    color: var(--dark-neutral);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #546e7a;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.hero-image svg {
+    width: 100%;
+    max-height: 380px;
+}
+
+/* Cards de Métricas */
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: -30px;
+    position: relative;
+    z-index: 10;
+}
+
+.metric-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+}
+
+.metric-card h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+/* Funcionalidades & Grid */
+.section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #546e7a;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.icon-box {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Soluções e Ícones */
+.solutions-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.solution-item {
+    display: flex;
+    gap: 20px;
+    background: var(--light-neutral);
+    padding: 20px;
+    border-radius: 8px;
+    align-items: flex-start;
+}
+
+.solution-item i {
+    font-size: 1.8rem;
+    padding-top: 5px;
+}
+
+.text-green { color: var(--primary-color); }
+.text-blue { color: #0288d1; }
+.text-orange { color: #f57c00; }
+
+/* Seção Desafios */
+.max-width-text {
+    max-width: 750px;
+    margin: 0 auto 30px auto;
+    font-size: 1.1rem;
+}
+
+.alert-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff3e0;
+    border-left: 5px solid #ffb74d;
+    padding: 15px 25px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+.alert-box i {
+    color: #e65100;
+    font-size: 1.4rem;
+}
+
+/* Quiz Section */
+.visual-highlight {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #0d5316 100%);
+}
+
+.quiz-container {
+    max-width: 700px;
+}
+
+#quiz-box {
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.question-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    background: var(--light-neutral);
+    border: 2px solid #e0e0e0;
+    padding: 14px 20px;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-btn:hover {
+    background: #e8f5e9;
+    border-color: var(--primary-color);
+}
+
+.feedback-text {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.feedback-text.correct { background: #e8f5e9; color: #2e7d32; }
+.feedback-text.wrong { background: #ffebee; color: #c62828; }
+
+/* Formulário de Contato */
+.max-width-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    padding: 12px;
+    border: 2px solid #cfd8dc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.form-group.invalid input, .form-group.invalid textarea {
+    border-color: var(--error-color);
+}
+
+.form-group.invalid .error-msg {
+    display: block;
+}
+
+.btn-submit {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background: var(--primary-dark);
+}
+
+.success-alert {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.hide { display: none !important; }
+
+/* Footer */
+footer {
+    background: var(--dark-neutral);
+    color: #b0bec5;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Responsividade Avançada (Media Queries) */
 @media (max-width: 768px) {
-    .container {
-        width: 95%;
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-    
-    header h1 {
-        font-size: 1.5rem;
-    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .header-flex { flex-direction: column; gap: 15px; }
+    nav a { margin: 0 10px; }
 }
