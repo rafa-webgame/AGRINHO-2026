@@ -384,7 +384,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsividade Avançada (Media Queries) */
+/* Responsividade */
 @media (max-width: 768px) {
     .hero-grid {
         grid-template-columns: 1fr;
