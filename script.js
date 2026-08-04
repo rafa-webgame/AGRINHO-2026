@@ -1,52 +1,99 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Rolagem suave para os links do menu de navegação
-    const linksDoMenu = document.querySelectorAll("nav a");
+// Banco de dados dinâmico de perguntas do Quiz
+const quizData = [
+    {
+        question: "Qual das seguintes técnicas reduz drasticamente o uso de defensivos químicos ao mapear pragas via satélite ou imagens aéreas?",
+        options: ["Aração convencional profunda", "Agricultura de Precisão", "Monocultura contínua", "Queimada controlada"],
+        correct: 1,
+        explanation: "A Agricultura de Precisão utiliza dados localizados para aplicar insumos apenas onde é estritamente necessário!"
+    }
+];
 
-    linksDoMenu.forEach(link => {
-        link.addEventListener("click", (evento) => {
-            evento.preventDefault(); // Impede o salto brusco padrão
-            
-            const idAlvo = link.getAttribute("href");
-            const secaoAlvo = document.querySelector(idAlvo);
+let currentQuestionIndex = 0;
 
-            if (secaoAlvo) {
-                secaoAlvo.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            }
-        });
+function loadQuiz() {
+    const quizQuestion = document.getElementById("quiz-question");
+    const quizOptions = document.getElementById("quiz-options");
+    const quizFeedback = document.getElementById("quiz-feedback");
+
+    quizFeedback.classList.add("hide");
+    const currentData = quizData[currentQuestionIndex];
+    quizQuestion.innerText = currentData.question;
+    quizOptions.innerHTML = "";
+
+    currentData.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.classList.add("option-btn");
+        button.addEventListener("click", () => checkAnswer(index));
+        quizOptions.appendChild(button);
     });
+}
 
-    // 2. Interação do Botão "Saiba Mais" do Banner
-    const botaoSaibaMais = document.querySelector(".banner button");
-    const secaoSustentabilidade = document.querySelector("#sustentabilidade");
+function checkAnswer(selectedIndex) {
+    const feedback = document.getElementById("quiz-feedback");
+    const currentData = quizData[currentQuestionIndex];
+    
+    // Desativa os botões para evitar cliques múltiplos
+    const buttons = document.querySelectorAll(".option-btn");
+    buttons.forEach(btn => btn.disabled = true);
 
-    if (botaoSaibaMais && secaoSustentabilidade) {
-        botaoSaibaMais.addEventListener("click", () => {
-            secaoSustentabilidade.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-            });
-        });
+    feedback.classList.remove("hide");
+    if(selectedIndex === currentData.correct) {
+        feedback.innerText = "Correto! " + currentData.explanation;
+        feedback.className = "feedback-text correct";
+    } else {
+        feedback.innerText = "Incorreto. " + currentData.explanation;
+        feedback.className = "feedback-text wrong";
+    }
+}
+
+// Lógica de Validação Robusta do Formulário
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
+    const successAlert = document.getElementById("formSuccess");
+    
+    let isValid = true;
+
+    // Validar Nome
+    if (name.value.trim().length < 3) {
+        name.parentElement.classList.add("invalid");
+        isValid = false;
+    } else {
+        name.parentElement.classList.remove("invalid");
     }
 
-    // 3. Envio do Formulário de Contato
-    const formulario = document.querySelector("form");
+    // Validar Email com Regex simples
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
+        email.parentElement.classList.add("invalid");
+        isValid = false;
+    } else {
+        email.parentElement.classList.remove("invalid");
+    }
 
-    if (formulario) {
-        formulario.addEventListener("submit", (evento) => {
-            evento.preventDefault(); // Impede a página de recarregar
+    // Validar Mensagem
+    if (message.value.trim() === "") {
+        message.parentElement.classList.add("invalid");
+        isValid = false;
+    } else {
+        message.parentElement.classList.remove("invalid");
+    }
 
-            // Captura os dados digitados
-            const nome = formulario.querySelector('input[type="text"]').value;
-            const mensagem = formulario.querySelector('textarea').value;
-
-            // Simula o envio bem-sucedido
-            alert(`Obrigado pelo contato, ${nome}! Sua mensagem foi enviada com sucesso.`);
-            
-            // Limpa o formulário
-            formulario.reset();
-        });
+    // Caso passe em todos os testes
+    if (isValid) {
+        successAlert.classList.remove("hide");
+        this.reset(); // Limpa os campos do formulário
+        setTimeout(() => {
+            successAlert.classList.add("hide");
+        }, 5000);
     }
 });
+
+// Inicialização das funções ao carregar a página
+window.onload = () => {
+    loadQuiz();
+};
