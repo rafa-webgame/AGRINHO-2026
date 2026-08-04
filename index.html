@@ -1,183 +1,344 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável - Agrinho 2026</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome para suporte de Ícones Auxiliares -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGRINHO 2026 | Produzir hoje preservando o amanhã</title>
+  <meta name="description" content="Projeto educacional Agrinho 2026: agricultura regenerativa, sustentabilidade no campo, dados reais do agro brasileiro, quiz e calculadoras interativas." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <header>
-        <div class="container header-flex">
-            <div class="logo">
-                <i class="fa-solid fa-leaf"></i> Agro<span>Sustentável</span>
-            </div>
-            <nav>
-                <a href="#producao">Produção</a>
-                <a href="#sustentabilidade">Sustentabilidade</a>
-                <a href="#desafios">Desafios</a>
-                <a href="#quiz">Quiz Educativo</a>
-                <a href="#contato" class="btn-nav">Contato</a>
-            </nav>
-        </div>
-    </header>
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#inicio" class="logo">🌱 AGRI<span>NHO</span> 2026</a>
 
-    <!-- SEÇÃO HERO COM DESIGN CORRIGIDO -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-text">
-                <h1>Agro forte, futuro sustentável</h1>
-                <p>O equilíbrio perfeito entre a produção em larga escala e a preservação do meio ambiente através da tecnologia de dados e inovação constante no campo.</p>
-                <a href="#sustentabilidade" class="btn-primary">Descobrir Soluções</a>
-            </div>
-            <div class="hero-image">
-                <!-- Comando de Imagem SVG Nativo higienizado sem quebras de renderização -->
-                <svg viewBox="0 0 500 400" xmlns="http://w3.org" class="img-responsive animate-float">
-                    <defs>
-                        <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#1b5e20"/>
-                            <stop offset="100%" stop-color="#4caf50"/>
-                        </linearGradient>
-                    </defs>
-                    <rect width="100%" height="60%" fill="#0d47a1" rx="15"/>
-                    <rect y="60%" width="100%" height="40%" fill="url(#g1)" rx="15"/>
-                    <path d="M 0 400 L 150 240 M 125 400 L 200 240 M 250 400 L 250 240 M 375 400 L 300 240 M 500 400 L 350 240" stroke="#ffffff" stroke-width="2" opacity="0.2" />
-                    <g transform="translate(180, 30)">
-                        <rect x="0" y="15" width="40" height="20" fill="#00e5ff"/>
-                        <rect x="100" y="15" width="40" height="20" fill="#00e5ff"/>
-                        <rect x="40" y="20" width="60" height="10" fill="#cfd8dc"/>
-                        <rect x="55" y="10" width="30" height="30" fill="#78909c" rx="4"/>
-                        <polygon points="60,40 80,40 70,55" fill="#cfd8dc" />
-                    </g>
-                    <polygon points="250,85 150,280 350,280" fill="#00e5ff" opacity="0.15"/>
-                </svg>
-            </div>
+      <ul class="nav-list" id="navList">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#numeros">Números</a></li>
+        <li><a href="#producao">Produção</a></li>
+        <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+        <li><a href="#desafios">Desafios</a></li>
+        <li><a href="#ferramentas">Ferramentas</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro">🌙</button>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="inicio">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <span class="badge reveal">🌾 Projeto Educacional · Agrinho 2026</span>
+        <h1 class="reveal">Produzir hoje, <span class="highlight">preservando</span> o amanhã</h1>
+        <p class="reveal">
+          Como o agronegócio pode crescer sem comprometer as futuras gerações?
+          Explore dados reais, práticas regenerativas e ferramentas interativas
+          que mostram o caminho do campo sustentável.
+        </p>
+        <div class="hero-buttons reveal">
+          <a href="#ferramentas" class="btn btn-primary">🚀 Explorar ferramentas</a>
+          <a href="#producao" class="btn btn-ghost">Conhecer o projeto</a>
         </div>
+      </div>
+      <a href="#numeros" class="scroll-down" aria-label="Rolar para baixo">▼</a>
     </section>
 
-    <!-- DASHBOARD DE MÉTRICAS -->
-    <section class="metrics container">
-        <div class="metric-card">
-            <h3>33%</h3>
-            <p>Do território total das propriedades agrícolas é mantido para conservação de vegetação nativa.</p>
+    <!-- ================= NÚMEROS ================= -->
+    <section class="stats" id="numeros">
+      <div class="container">
+        <h2 class="section-title reveal">O agro brasileiro em números</h2>
+        <p class="section-subtitle reveal">Dados reais que mostram a força — e a responsabilidade — do campo.</p>
+
+        <div class="stats-grid">
+          <div class="stat reveal">
+            <span class="stat-number" data-target="66.3" data-decimals="1" data-suffix="%">0%</span>
+            <p>do território brasileiro é coberto por vegetação nativa (Embrapa Territorial)</p>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-target="25.1" data-decimals="1" data-suffix="%">0%</span>
+            <p>do PIB do Brasil veio do agronegócio em 2025 (Cepea/CNA)</p>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-target="50" data-suffix="%">0%</span>
+            <p>da matriz energética brasileira é renovável — o triplo da média mundial (MME)</p>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-number" data-target="17.4" data-decimals="1" data-suffix=" mi">0</span>
+            <p>de hectares com Integração Lavoura-Pecuária-Floresta (Rede ILPF)</p>
+          </div>
         </div>
-        <div class="metric-card">
-            <h3>+30%</h3>
-            <p>De sequestro de carbono no solo com o uso consolidado do Plantio Direto.</p>
-        </div>
-        <div class="metric-card">
-            <h3>2030</h3>
-            <p>Meta do plano ABC+ para descarbonizar milhões de hectares produtivos.</p>
-        </div>
+      </div>
     </section>
 
-    <!-- PRODUÇÃO E EVOLUÇÃO TECNOLÓGICA -->
-    <section id="producao" class="section-padding bg-light">
-        <div class="container">
-            <h2 class="section-title">Produção Agrícola e Evolução Tecnológica</h2>
-            <p class="section-subtitle">O agronegócio opera como um hub de biotecnologia e análise computacional contínua.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <svg viewBox="0 0 200 150" xmlns="http://w3.org" class="card-img">
-                        <circle cx="100" cy="75" r="50" fill="#e8f5e9"/>
-                        <rect x="70" y="65" width="60" height="20" rx="10" fill="#37474f"/>
-                        <line x1="50" y1="50" x2="150" y2="100" stroke="#37474f" stroke-width="6"/>
-                        <line x1="50" y1="100" x2="150" y2="50" stroke="#37474f" stroke-width="6"/>
-                        <circle cx="100" cy="85" r="8" fill="#00e5ff"/>
-                    </svg>
-                    <h3>Sensoriamento por Drones</h3>
-                    <p>Mapeamentos aéreos detectam anomalias na lavoura, reduzindo insumos e defensivos químicos em até 40%.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <svg viewBox="0 0 200 150" xmlns="http://w3.org" class="card-img">
-                        <circle cx="100" cy="75" r="50" fill="#e3f2fd"/>
-                        <rect x="65" y="40" width="70" height="20" rx="3" fill="#455a64"/>
-                        <rect x="65" y="65" width="70" height="20" rx="3" fill="#455a64"/>
-                        <circle cx="75" cy="50" r="3" fill="#00e676"/>
-                        <circle cx="75" cy="75" r="3" fill="#00e676"/>
-                    </svg>
-                    <h3>Big Data e Sensores IoT</h3>
-                    <p>Sensores coletam umidade em tempo real, gerando modelos preditivos que combatem o estresse hídrico.</p>
-                </div>
+    <!-- ================= PRODUÇÃO ================= -->
+    <section class="section" id="producao">
+      <div class="container">
+        <h2 class="section-title reveal">🌾 Produção Agrícola</h2>
+        <p class="section-subtitle reveal">
+          O agronegócio é o motor da economia brasileira — e prova que é possível
+          produzir mais sem desmatar mais.
+        </p>
+
+        <div class="content-grid">
+          <div class="content-text reveal">
+            <h3>Evolução Tecnológica</h3>
+            <p>
+              Entre as safras 1990/91 e 2025/26, a produção brasileira de grãos cresceu
+              <strong>mais de 500%</strong>, enquanto a área plantada cresceu menos de um terço
+              disso. Esse salto de produtividade tem nome: tecnologia, manejo e ciência no campo.
+            </p>
+            <ul class="check-list">
+              <li>✅ Sensores, drones e GPS aplicando insumos na dose certa;</li>
+              <li>✅ Análise de dados e mapas de produtividade para decidir melhor;</li>
+              <li>✅ Melhoramento genético e biotecnologia adaptadas ao clima tropical;</li>
+              <li>✅ Máquinas inteligentes que reduzem perdas e consumo de combustível.</li>
+            </ul>
+          </div>
+          <figure class="content-img reveal">
+            <img src="img/ilpf.jpg" alt="Gado pastando entre árvores em sistema de Integração Lavoura-Pecuária-Floresta" loading="lazy" />
+            <figcaption>ILPF: lavoura, pecuária e floresta na mesma área, o ano todo.</figcaption>
+          </figure>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card reveal">
+            <span class="card-icon">🚜</span>
+            <h3>Sistema Plantio Direto</h3>
+            <p>Cerca de <strong>35 milhões de hectares</strong> — quase 90% da área de grãos — são cultivados sem revolver o solo, com palha na superfície que segura umidade, evita erosão e sequestra carbono.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon">🐄</span>
+            <h3>Integração Lavoura-Pecuária-Floresta</h3>
+            <p>São <strong>17,4 milhões de hectares</strong> de ILPF no Brasil, somando renda, bem-estar animal, sombra, madeira e carbono neutro na mesma propriedade.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon">🧬</span>
+            <h3>Bioinsumos e controle biológico</h3>
+            <p>O Brasil está entre os <strong>maiores mercados de bioinsumos do mundo</strong>: bactérias, fungos e insetos bons que substituem parte dos químicos e regeneram o solo.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon">🛰️</span>
+            <h3>Agricultura de precisão</h3>
+            <p>Telemetria, satélites e inteligência de dados podem elevar a produtividade em <strong>até 20%</strong>, reduzindo desperdício de insumos, água e combustível.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SUSTENTABILIDADE ================= -->
+    <section class="section section-alt" id="sustentabilidade">
+      <div class="container">
+        <h2 class="section-title reveal">♻️ Sustentabilidade no Campo</h2>
+        <p class="section-subtitle reveal">Equilibrar produção e preservação não é opção — é estratégia de sobrevivência do produtor.</p>
+
+        <div class="content-grid reverse">
+          <div class="content-text reveal">
+            <h3>O campo que gera energia limpa</h3>
+            <p>
+              Cerca de <strong>50% da matriz energética brasileira</strong> é renovável — o triplo da
+              média mundial — e a matriz elétrica chega a quase <strong>90% de fontes limpas</strong>.
+              No meio rural, painéis solares, microeólicas e biogás transformam a fazenda em
+              <strong>usina de energia</strong>, cortando custos e emissões.
+            </p>
+            <ul class="check-list">
+              <li>☀️ Energia solar reduzindo a conta de luz da irrigação e da ordenha;</li>
+              <li>💨 Eólicas e biogás aproveitando resíduos da produção;</li>
+              <li>🌿 Reservas Legais e APPs protegendo nascentes e polinizadores.</li>
+            </ul>
+          </div>
+          <figure class="content-img reveal">
+            <img src="img/energia.jpg" alt="Painéis solares e turbina eólica em propriedade rural" loading="lazy" />
+            <figcaption>Fazenda vira usina: solar + eólica no meio da lavoura.</figcaption>
+          </figure>
+        </div>
+
+        <div class="cards-grid three">
+          <article class="card reveal">
+            <span class="card-icon">🌱</span>
+            <h3>Agricultura Regenerativa</h3>
+            <p>Rotação de culturas, adubação verde e cobertura do solo devolvem vida à terra: mais matéria orgânica, mais água infiltrada, mais carbono armazenado.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon">💧</span>
+            <h3>Uso consciente da água</h3>
+            <p>Irrigação por gotejamento e pivôs inteligentes podem economizar <strong>até 50% de água</strong>, protegendo rios e nascentes com monitoramento em tempo real.</p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon">⚡</span>
+            <h3>Energias Renováveis</h3>
+            <p>Solar, eólica e biomassa diminuem a pegada de carbono de cada litro de leite, grão ou quilo de carne produzido no Brasil.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DESAFIOS ================= -->
+    <section class="section" id="desafios">
+      <div class="container">
+        <h2 class="section-title reveal">⚠️ Desafios Ambientais</h2>
+        <p class="section-subtitle reveal">Combater o desmatamento, o desperdício de água e as emissões de carbono é tarefa de todos.</p>
+
+        <div class="cards-grid three">
+          <article class="card challenge reveal">
+            <span class="card-icon">🔥</span>
+            <h3>Pastagens degradadas</h3>
+            <p>O Brasil tem <strong>177 milhões de hectares</strong> de pastagens e cerca de <strong>110 milhões</strong> apresentam degradação de moderada a severa. Recuperar essas áreas é a maior oportunidade do agro: produzir mais <em>sem abrir novas áreas</em>.</p>
+          </article>
+          <article class="card challenge reveal">
+            <span class="card-icon">🌧️</span>
+            <h3>Água e clima extremo</h3>
+            <p>Secas mais longas e chuvas concentradas ameaçam safras e cidades. A resposta está em solo vivo (que age como esponja), irrigação eficiente e proteção de nascentes e matas ciliares.</p>
+          </article>
+          <article class="card challenge reveal">
+            <span class="card-icon">🌫️</span>
+            <h3>Emissões de carbono</h3>
+            <p>O Plano ABC+ prevê recuperar <strong>30 milhões de hectares</strong> de pastagens degradadas até 2030, ampliando plantio direto, ILPF e florestas plantadas para mitigar emissões.</p>
+          </article>
+        </div>
+
+        <div class="solution-box reveal">
+          <h3>💡 A solução já existe no campo</h3>
+          <p>Cada hectare degradado recuperado com tecnologia sequestra carbono, segura água, gera alimento e renda. O futuro do agro é <strong>regenerativo, digital e de baixo carbono</strong> — e ele já começou.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FERRAMENTAS INTERATIVAS ================= -->
+    <section class="section section-alt" id="ferramentas">
+      <div class="container">
+        <h2 class="section-title reveal">🧪 Ferramentas Interativas</h2>
+        <p class="section-subtitle reveal">Aprenda brincando: teste seus conhecimentos e simule o impacto de práticas sustentáveis.</p>
+
+        <div class="tabs reveal">
+          <button class="tab active" data-tab="quiz">🧠 Quiz do Agro</button>
+          <button class="tab" data-tab="calculadora">🌳 Calculadora de Carbono</button>
+          <button class="tab" data-tab="simulador">☀️ Simulador Solar</button>
+        </div>
+
+        <!-- QUIZ -->
+        <div class="tab-panel active" id="panel-quiz">
+          <div class="quiz-box">
+            <div class="quiz-header">
+              <span id="quizProgress">Pergunta 1 de 6</span>
+              <span id="quizScore">⭐ Pontos: 0</span>
             </div>
-        </div>
-    </section>
-
-    <!-- PILARES DA SUSTENTABILIDADE -->
-    <section id="sustentabilidade" class="section-padding">
-        <div class="container">
-            <h2 class="section-title">Pilares da Sustentabilidade</h2>
-            <div class="solutions-grid">
-                <div class="solution-item">
-                    <svg viewBox="0 0 100 100" xmlns="http://w3.org" class="solution-img">
-                        <path d="M50 90 C50 60 20 40 20 20 C40 20 50 40 50 90" fill="#2e7d32"/>
-                        <path d="M50 90 C50 60 80 40 80 20 C60 20 50 40 50 90" fill="#4caf50"/>
-                    </svg>
-                    <h3>Agricultura Regenerativa</h3>
-                    <p>Manejo biológico do solo e rotação de culturas que recuperam os nutrientes sem esgotar a terra.</p>
-                </div>
-                
-                <div class="solution-item">
-                    <svg viewBox="0 0 100 100" xmlns="http://w3.org" class="solution-img">
-                        <path d="M50 15 C50 15 20 55 20 70 C20 85 33 95 50 95 C67 95 80 85 80 70 C80 55 50 15 50 15Z" fill="#0288d1"/>
-                    </svg>
-                    <h3>Uso Consciente da Água</h3>
-                    <p>Irrigação inteligente por gotejamento subterrâneo que reduz drasticamente a taxa de evaporação.</p>
-                </div>
-                
-                <div class="solution-item">
-                    <svg viewBox="0 0 100 100" xmlns="http://w3.org" class="solution-img">
-                        <rect x="20" y="25" width="60" height="40" fill="#37474f"/>
-                        <rect x="25" y="30" width="50" height="30" fill="#0288d1"/>
-                        <line x1="50" y1="65" x2="50" y2="85" stroke="#37474f" stroke-width="6"/>
-                    </svg>
-                    <h3>Energias Renováveis</h3>
-                    <p>Aproveitamento total de usinas de biogás e matriz solar para zerar a pegada de carbono operacional.</p>
-                </div>
+            <h3 id="quizQuestion"></h3>
+            <div id="quizOptions" class="quiz-options"></div>
+            <p id="quizFeedback" class="quiz-feedback"></p>
+            <div class="quiz-footer">
+              <button id="quizNext" class="btn btn-primary" disabled>Próxima →</button>
+              <button id="quizRestart" class="btn btn-ghost hidden">🔄 Recomeçar</button>
             </div>
+          </div>
         </div>
+
+        <!-- CALCULADORA -->
+        <div class="tab-panel" id="panel-calculadora">
+          <form id="calcForm" class="tool-form">
+            <label>📐 Área da propriedade (hectares)
+              <input type="number" id="calcArea" min="1" max="1000000" value="10" required />
+            </label>
+            <label>🌿 Prática sustentável adotada
+              <select id="calcPratica">
+                <option value="0.8">Sistema Plantio Direto (≈ 0,8 t CO₂e/ha·ano)</option>
+                <option value="1.2">Rotação de culturas (≈ 1,2 t CO₂e/ha·ano)</option>
+                <option value="2.5" selected>ILPF (≈ 2,5 t CO₂e/ha·ano)</option>
+                <option value="3.5">Sistema Agroflorestal (≈ 3,5 t CO₂e/ha·ano)</option>
+              </select>
+            </label>
+            <button type="submit" class="btn btn-primary">🌱 Calcular sequestro de carbono</button>
+          </form>
+          <div id="calcResult" class="tool-result hidden"></div>
+          <p class="tool-note">⚠️ Valores educativos aproximados, baseados em médias de literatura técnica.</p>
+        </div>
+
+        <!-- SIMULADOR -->
+        <div class="tab-panel" id="panel-simulador">
+          <form id="simForm" class="tool-form">
+            <label>🔆 Número de painéis solares (550 W)
+              <input type="number" id="simPaineis" min="1" max="1000" value="10" required />
+            </label>
+            <label>☀️ Horas de sol pleno por dia: <output id="simSolOut">5 h</output>
+              <input type="range" id="simSol" min="3" max="8" step="0.5" value="5" />
+            </label>
+            <button type="submit" class="btn btn-primary">⚡ Simular geração de energia</button>
+          </form>
+          <div id="simResult" class="tool-result hidden"></div>
+          <p class="tool-note">⚠️ Simulação educativa (painel de 550 W, eficiência de 85%, tarifa média de R$ 0,90/kWh).</p>
+        </div>
+      </div>
     </section>
 
-    <!-- DESAFIOS AMBIENTAIS -->
-    <section id="desafios" class="section-padding bg-light">
-        <div class="container text-center">
-            <h2 class="section-title">Desafios Ambientais Críticos</h2>
-            <p class="max-width-text">A liderança exige responsabilidade ecológica. O foco concentra-se no fim do desmatamento ilegal e na redução do desperdício de insumos de ponta a ponta.</p>
-            <div class="alert-box">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <span>A conformidade ambiental estrita é o principal passaporte de entrada para a exportação de grãos e carnes no mercado exterior.</span>
-            </div>
-        </div>
-    </section>
+    <!-- ================= CONTATO ================= -->
+    <section class="section" id="contato">
+      <div class="container narrow">
+        <h2 class="section-title reveal">📬 Contato</h2>
+        <p class="section-subtitle reveal">Mande sua dúvida, sugestão ou ideia de parceria. Este formulário valida tudo em JavaScript!</p>
 
-    <!-- QUIZ EDUCACIONAL INTERATIVO -->
-    <section id="quiz" class="section-padding visual-highlight">
-        <div class="container quiz-container">
-            <h2 class="section-title text-white">Desafio Agro Sustentável</h2>
-            <p class="text-white text-center">Responda à questão técnica baseada no ecossistema agrário contemporâneo.</p>
-            <div id="quiz-box">
-                <p id="quiz-question" class="question-text">Carregando pergunta...</p>
-                <div id="quiz-options" class="options-grid"></div>
-                <div id="quiz-feedback" class="feedback-text hide"></div>
-            </div>
-        </div>
+        <form id="contactForm" class="contact-form reveal" novalidate>
+          <div class="form-group">
+            <label for="name">Nome completo *</label>
+            <input type="text" id="name" placeholder="Ex.: Rafael da Silva" />
+            <small class="error-msg" id="errorName"></small>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" placeholder="voce@exemplo.com" />
+            <small class="error-msg" id="errorEmail"></small>
+          </div>
+          <div class="form-group">
+            <label for="subject">Assunto</label>
+            <select id="subject">
+              <option>Dúvida sobre o projeto</option>
+              <option>Sugestão de conteúdo</option>
+              <option>Parceria escolar</option>
+              <option>Outro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Mensagem *</label>
+            <textarea id="message" rows="5" placeholder="Escreva sua mensagem (mínimo 10 caracteres)..."></textarea>
+            <small class="error-msg" id="errorMessage"></small>
+          </div>
+          <button type="submit" class="btn btn-primary">📨 Enviar mensagem</button>
+          <p id="formSuccess" class="form-success hidden">✅ Mensagem enviada com sucesso! Obrigado por apoiar o campo sustentável. 💚</p>
+        </form>
+      </div>
     </section>
+  </main>
 
-    <!-- CANAL DE CONTATO -->
-    <section id="contato" class="section-padding">
-        <div class="container max-width-form">
-            <h2 class="section-title">Canal de Parcerias e Projetos</h2>
-            <p class="section-subtitle">Envie sua proposta ou crítica para impulsionar a educação ambiental na escola.</p>
-            <form id="contactForm" novalidate>
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" required placeholder="Seu nome completo">
-                    <span class="error-msg" id="nameError">O nome inserido precisa ter pelo menos 3 caracteres válidos.</span>
-                </div>
-                <div class="form-group">
-                    <label for="email">E-mail de Contato</label>
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="logo">🌱 AGRI<span>NHO</span> 2026</p>
+        <p>Projeto educacional sobre produção sustentável, agricultura regenerativa e energias renováveis no campo.</p>
+      </div>
+      <div>
+        <h4>Fontes dos dados</h4>
+        <p>Embrapa Territorial · Cepea/CNA · MME/EPE · Rede ILPF · Febrapdp · MapBiomas · Plano ABC+</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <p><a href="#producao">Produção</a> · <a href="#sustentabilidade">Sustentabilidade</a> · <a href="#desafios">Desafios</a> · <a href="#ferramentas">Ferramentas</a></p>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 AGRINHO — Produzir hoje, preservando o amanhã. Feito com 💚 e JavaScript.</p>
+  </footer>
+
+  <button id="backToTop" aria-label="Voltar ao topo">↑</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
