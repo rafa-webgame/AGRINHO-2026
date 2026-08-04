@@ -15,6 +15,8 @@ function loadQuiz() {
     const quizOptions = document.getElementById("quiz-options");
     const quizFeedback = document.getElementById("quiz-feedback");
 
+    if (!quizQuestion || !quizOptions || !quizFeedback) return;
+
     quizFeedback.classList.add("hide");
     const currentData = quizData[currentQuestionIndex];
     quizQuestion.innerText = currentData.question;
@@ -33,7 +35,6 @@ function checkAnswer(selectedIndex) {
     const feedback = document.getElementById("quiz-feedback");
     const currentData = quizData[currentQuestionIndex];
     
-    // Desativa os botões para evitar cliques múltiplos
     const buttons = document.querySelectorAll(".option-btn");
     buttons.forEach(btn => btn.disabled = true);
 
@@ -47,7 +48,7 @@ function checkAnswer(selectedIndex) {
     }
 }
 
-// Lógica de Validação Robusta do Formulário
+// Lógica de Validação do Formulário Corrigida
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
     
@@ -66,8 +67,8 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         name.parentElement.classList.remove("invalid");
     }
 
-    // Validar Email com Regex simples
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Validar Email (Expressão Regular corrigida sem travar o script)
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
     if (!emailPattern.test(email.value.trim())) {
         email.parentElement.classList.add("invalid");
         isValid = false;
@@ -83,17 +84,16 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         message.parentElement.classList.remove("invalid");
     }
 
-    // Caso passe em todos os testes
     if (isValid) {
         successAlert.classList.remove("hide");
-        this.reset(); // Limpa os campos do formulário
+        this.reset();
         setTimeout(() => {
             successAlert.classList.add("hide");
         }, 5000);
     }
 });
 
-// Inicialização das funções ao carregar a página
-window.onload = () => {
+// Inicialização segura ao carregar a página
+window.addEventListener("DOMContentLoaded", () => {
     loadQuiz();
-};
+});
