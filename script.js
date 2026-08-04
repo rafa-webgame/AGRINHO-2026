@@ -1,21 +1,21 @@
-// Banco de Dados Limpo do Simulador e Quiz do Agrinho 2026
+// Banco de dados do Quiz Técnico (Agrinho 2026)
 const quizData = [
     {
-        question: "Qual técnica sustentável adota o plantio direto sobre a biomassa protetora da colheita anterior, combatendo severamente a erosão?",
+        question: "Qual técnica mitiga as emissões de carbono ao plantar diretamente sobre os restos orgânicos da colheita anterior, sem arar a terra?",
         options: [
             "Queimada controlada tradicional",
-            "Sistema de Plantio Direto Consolidade",
-            "Aração profunda contínua do solo",
-            "Fertilização química de alta solubilidade"
+            "Sistema de Plantio Direto",
+            "Mecanização profunda do terreno",
+            "Fertilização química solúvel de alta dosagem"
         ],
         correct: 1,
-        explanation: "O Plantio Direto protege a integridade microbiológica do solo, retém a umidade de forma natural e sequestra gás carbônico na matéria orgânica!"
+        explanation: "O Plantio Direto mantém a palhada da lavoura antiga para resguardar a microbiota do solo, evitando a erosão mecânica e capturando carbono de forma orgânica!"
     }
 ];
 
 let currentQuestionIndex = 0;
 
-function runQuizSystem() {
+function loadQuizSystem() {
     const questionEl = document.getElementById("quiz-question");
     const optionsContainer = document.getElementById("quiz-options");
     const feedbackEl = document.getElementById("quiz-feedback");
@@ -32,12 +32,12 @@ function runQuizSystem() {
         const button = document.createElement("button");
         button.innerText = optionText;
         button.classList.add("option-btn");
-        button.addEventListener("click", () => evaluateAnswer(index));
+        button.addEventListener("click", () => checkQuizAnswer(index));
         optionsContainer.appendChild(button);
     });
 }
 
-function evaluateAnswer(selectedIndex) {
+function checkQuizAnswer(selectedIndex) {
     const feedbackEl = document.getElementById("quiz-feedback");
     const currentQuiz = quizData[currentQuestionIndex];
     
@@ -46,15 +46,15 @@ function evaluateAnswer(selectedIndex) {
 
     feedbackEl.classList.remove("hide");
     if (selectedIndex === currentQuiz.correct) {
-        feedbackEl.innerText = "Excelente escolha! " + currentQuiz.explanation;
+        feedbackEl.innerText = "Excelente! " + currentQuiz.explanation;
         feedbackEl.className = "feedback-text correct";
     } else {
-        feedbackEl.innerText = "Alternativa incorreta. " + currentQuiz.explanation;
+        feedbackEl.innerText = "Incorreto. " + currentQuiz.explanation;
         feedbackEl.className = "feedback-text wrong";
     }
 }
 
-// Validação Interativa do Formulário de Contato (Sem quebras de compilação)
+// Validação Robusta e Dinâmica do Formulário
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
     
@@ -73,9 +73,9 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         name.parentElement.classList.remove("invalid");
     }
 
-    // Conferência Sintática do Email via Expressão Regular Padrão RFC
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email.value.trim())) {
+    // Conferência Segura do Email por Verificação Própria
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email.value.trim())) {
         email.parentElement.classList.add("invalid");
         isFormValid = false;
     } else {
@@ -90,7 +90,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         message.parentElement.classList.remove("invalid");
     }
 
-    // Exibição de Alerta de Transmissão de Sucesso
+    // Disparo de Mensagem de Êxito Local
     if (isFormValid) {
         successBox.classList.remove("hide");
         this.reset();
@@ -100,7 +100,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     }
 });
 
-// Inicialização segura controlada por eventos estruturais do DOM
+// Inicialização estável controlada pelo DOM
 window.addEventListener("DOMContentLoaded", () => {
-    runQuizSystem();
+    loadQuizSystem();
 });
