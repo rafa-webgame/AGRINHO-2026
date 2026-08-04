@@ -359,6 +359,7 @@ nav a:hover {
     border-color: var(--primary-light);
 }
 
+/* Mensagens de Erro e Validação */
 .error-msg {
     color: var(--error);
     font-size: 0.85rem;
@@ -371,7 +372,9 @@ nav a:hover {
     background-color: #fffde7;
 }
 
-.form-group.invalid .error-msg { display: block; }
+.form-group.invalid .error-msg { 
+    display: block; 
+}
 
 .btn-submit {
     background: var(--primary);
@@ -386,7 +389,9 @@ nav a:hover {
     transition: var(--transition);
 }
 
-.btn-submit:hover { background: var(--primary-light); }
+.btn-submit:hover { 
+    background: var(--primary-light); 
+}
 
 .success-alert {
     background: #e8f5e9;
