@@ -1,21 +1,21 @@
-// Banco de dados do Quiz Técnico (Agrinho 2026)
+// Banco de dados seguro para o Quiz Pedagógico
 const quizData = [
     {
-        question: "Qual técnica mitiga as emissões de carbono ao plantar diretamente sobre os restos orgânicos da colheita anterior, sem arar a terra?",
+        question: "Qual técnica mitiga as emissões de carbono ao plantar diretamente sobre a palhada da colheita anterior, sem arar o terreno?",
         options: [
-            "Queimada controlada tradicional",
+            "Queimada preventiva sazonal",
             "Sistema de Plantio Direto",
-            "Mecanização profunda do terreno",
+            "Mecanização profunda com tratores",
             "Fertilização química solúvel de alta dosagem"
         ],
         correct: 1,
-        explanation: "O Plantio Direto mantém a palhada da lavoura antiga para resguardar a microbiota do solo, evitando a erosão mecânica e capturando carbono de forma orgânica!"
+        explanation: "O Plantio Direto mantém a palhada para resguardar os microrganismos protetores nativos da terra, combatendo a erosão hídrica severa e capturando carbono!"
     }
 ];
 
 let currentQuestionIndex = 0;
 
-function loadQuizSystem() {
+function runQuizSystem() {
     const questionEl = document.getElementById("quiz-question");
     const optionsContainer = document.getElementById("quiz-options");
     const feedbackEl = document.getElementById("quiz-feedback");
@@ -32,12 +32,12 @@ function loadQuizSystem() {
         const button = document.createElement("button");
         button.innerText = optionText;
         button.classList.add("option-btn");
-        button.addEventListener("click", () => checkQuizAnswer(index));
+        button.addEventListener("click", () => evaluateAnswer(index));
         optionsContainer.appendChild(button);
     });
 }
 
-function checkQuizAnswer(selectedIndex) {
+function evaluateAnswer(selectedIndex) {
     const feedbackEl = document.getElementById("quiz-feedback");
     const currentQuiz = quizData[currentQuestionIndex];
     
@@ -46,15 +46,15 @@ function checkQuizAnswer(selectedIndex) {
 
     feedbackEl.classList.remove("hide");
     if (selectedIndex === currentQuiz.correct) {
-        feedbackEl.innerText = "Excelente! " + currentQuiz.explanation;
+        feedbackEl.innerText = "Excelente escolha! " + currentQuiz.explanation;
         feedbackEl.className = "feedback-text correct";
     } else {
-        feedbackEl.innerText = "Incorreto. " + currentQuiz.explanation;
+        feedbackEl.innerText = "Alternativa incorreta. " + currentQuiz.explanation;
         feedbackEl.className = "feedback-text wrong";
     }
 }
 
-// Validação Robusta e Dinâmica do Formulário
+// Lógica de Validação Estável para o Formulário de Contato
 document.getElementById("contactForm").addEventListener("submit", function(event) {
     event.preventDefault();
     
@@ -73,9 +73,9 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         name.parentElement.classList.remove("invalid");
     }
 
-    // Conferência Segura do Email por Verificação Própria
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email.value.trim())) {
+    // Conferência do Email com Regex seguro sem quebra de compilação
+    const emailRegex = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    if (!emailRegex.test(email.value.trim())) {
         email.parentElement.classList.add("invalid");
         isFormValid = false;
     } else {
@@ -90,7 +90,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
         message.parentElement.classList.remove("invalid");
     }
 
-    // Disparo de Mensagem de Êxito Local
+    // Exibição do Alerta de Sucesso
     if (isFormValid) {
         successBox.classList.remove("hide");
         this.reset();
@@ -100,7 +100,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     }
 });
 
-// Inicialização estável controlada pelo DOM
+// Inicialização segura controlada por eventos estruturais do DOM
 window.addEventListener("DOMContentLoaded", () => {
-    loadQuizSystem();
+    runQuizSystem();
 });
